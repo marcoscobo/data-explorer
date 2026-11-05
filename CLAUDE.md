@@ -13,7 +13,7 @@ Data Explorer is a web app for non-technical business users to analyze their own
 
 ## Stack and commands
 
-React + TypeScript + Vite; Vitest + Testing Library; ESLint. The project is not scaffolded yet, so the commands below apply once it is. The chart library and CSV parser are undecided: ask before choosing.
+Vue 3 + TypeScript + Vite; Vitest + Vue Test Utils; ESLint. Deploys to Vercel (build output in `dist/`, serverless functions in `/api`; functions must never receive user data). The chart library and CSV parser are undecided: ask before choosing.
 
 ```bash
 npm install

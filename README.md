@@ -14,15 +14,15 @@ Data Explorer is a web app that lets non-technical business users analyze their 
 
 ## Tech stack
 
-- React + TypeScript, built with Vite
-- Vitest + Testing Library for tests
+- Vue 3 + TypeScript, built with Vite
+- Vitest + Vue Test Utils for tests
 - ESLint for linting
 
 The chart library and CSV parser are not chosen yet; each will be decided in its own feature branch.
 
 ## Getting started
 
-> Available once the project is scaffolded.
+Requires Node 22 (see `.nvmrc`). A DevContainer is provided in `.devcontainer/`.
 
 ```bash
 npm install
@@ -47,4 +47,8 @@ See [CLAUDE.md](CLAUDE.md) for the full rules used by AI agents working on this 
 
 ## Status
 
-Early stage. The project is not scaffolded yet.
+Early stage. The project skeleton is in place; no features yet.
+
+## Deployment
+
+Prepared for Vercel: the build outputs to `dist/` and serverless functions live in `/api`. Functions must never receive user data.
