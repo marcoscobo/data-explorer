@@ -158,7 +158,7 @@ export function chartOption(data: ChartData, config: ChartConfig, s: ChartStyle)
   const base = {
     aria: { enabled: true },
     textStyle: { color: s.text },
-    grid: { left: 8, right: 16, top: 24, bottom: 8, containLabel: true },
+    grid: { left: 8, right: 16, top: 24, bottom: config.type === 'scatter' ? 30 : 8, containLabel: true },
   }
   if (data.kind === 'empty') return base
 

@@ -152,6 +152,12 @@ describe('chartOption', () => {
     expect(o.aria.enabled).toBe(true)
   })
 
+  it('leaves room under a scatter chart for its X axis name', () => {
+    const data: ChartData = { kind: 'points', points: [[1, 2]] }
+    const grid = (c: ChartConfig) => (chartOption(data, c, style) as { grid: { bottom: number } }).grid.bottom
+    expect(grid(cfg({ type: 'scatter', x: 'units', y: 'sales' }))).toBeGreaterThan(grid(cfg({})))
+  })
+
   it('returns a bare option for empty data', () => {
     const o = chartOption({ kind: 'empty', message: 'm' }, cfg({}), style) as { series?: unknown }
     expect(o.series).toBeUndefined()

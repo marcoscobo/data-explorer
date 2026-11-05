@@ -113,4 +113,15 @@ describe('ChartBuilder', () => {
     const wrapper = mount(ChartBuilder, { props: { ...props, rows: many } })
     expect(wrapper.get('[data-testid=builder-notice]').text()).toMatch(/grouped as "Other"/)
   })
+
+  it('defaults bar and pie to a real category column, not an ID-like one', () => {
+    const cols: ColumnInfo[] = [
+      { name: 'id', type: 'text' },
+      { name: 'segment', type: 'text' },
+      { name: 'amount', type: 'number' },
+    ]
+    const data = Array.from({ length: 40 }, (_, i) => [`ID-${i}`, i % 2 ? 'A' : 'B', String(i)])
+    const wrapper = mount(ChartBuilder, { props: { columns: cols, headers: ['id', 'segment', 'amount'], rows: data, types: ['text', 'text', 'number'] as ColumnType[] } })
+    expect((wrapper.findAll('select')[0]!.element as HTMLSelectElement).value).toBe('segment')
+  })
 })

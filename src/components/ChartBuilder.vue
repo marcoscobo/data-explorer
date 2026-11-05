@@ -47,8 +47,22 @@ const isScatter = computed(() => type.value === 'scatter')
 const needsY = computed(() => isScatter.value || agg.value !== 'count')
 
 /** Keeps the selected columns valid for the chosen chart type. */
+function distinctCount(name: string): number {
+  const i = props.headers.indexOf(name)
+  return new Set(props.rows.map((r) => r[i])).size
+}
+
+/** For bar and pie, prefer a text column with few distinct values (a real category) over an ID-like one. */
+function defaultX(): string {
+  if (type.value === 'bar' || type.value === 'pie') {
+    const category = xOptions.value.find((c) => c.type === 'text' && distinctCount(c.name) <= 20)
+    if (category) return category.name
+  }
+  return xOptions.value[0]?.name ?? ''
+}
+
 function normalize() {
-  if (!xOptions.value.some((c) => c.name === x.value)) x.value = xOptions.value[0]?.name ?? ''
+  if (!xOptions.value.some((c) => c.name === x.value)) x.value = defaultX()
   if (needsY.value && !yOptions.value.some((c) => c.name === y.value)) {
     const other = yOptions.value.find((c) => c.name !== x.value) ?? yOptions.value[0]
     y.value = other?.name ?? ''
