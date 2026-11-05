@@ -10,16 +10,17 @@ Data Explorer is a web app that lets non-technical business users analyze their 
 - Sort (click a column header), filter (global search and per-column filters) and paginate the data — implemented
 - Basic statistics per column (counts, missing, unique, min/max/mean/median/std dev, dates, most frequent values), computed on the filtered rows — implemented
 - Plain-language summaries
-- Charts generated from the data
-- Dashboards combining several charts
+- Charts (bar, line, pie, scatter) built by choosing columns and a chart type, drawn with ECharts, from the filtered rows — implemented
+- A dashboard of saved charts. Only the chart configuration is saved (in your browser, or as a JSON file you download), never your data — implemented
 
 ## Tech stack
 
 - Vue 3 + TypeScript, built with Vite
+- ECharts (via vue-echarts) for charts, loaded on demand
 - Vitest + Vue Test Utils for tests
 - ESLint for linting
 
-The chart library and CSV parser are not chosen yet; each will be decided in its own feature branch.
+The CSV parser is Papa Parse.
 
 ## Getting started
 
@@ -59,3 +60,9 @@ Prepared for Vercel: the build outputs to `dist/` and serverless functions live 
 - Column types are detected automatically: numbers (dot decimal, no thousands separators), dates (ISO `YYYY-MM-DD`) and text. A column is numeric or a date when at least 90% of its non-empty values match.
 - Other formats (for example `45,50` or `13/03/2025`) are treated as text for now.
 - Standard deviation is the sample standard deviation (n - 1).
+
+## Charts and saved configuration
+
+- Chart types: bar, line, pie (up to 7 categories plus "Other") and scatter (sampled above 5,000 points).
+- A saved chart contains only its type, title, column names and aggregation. Rows and cell values are never stored or exported; everything saved passes through a whitelist (`src/charts/chartConfig.ts`).
+- Dashboards are kept in the browser's `localStorage`, per set of column names and types, and can be exported or loaded as a small JSON file. Loading adds charts and skips any that refer to columns the current file does not have.

@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import DataPreview from './DataPreview.vue'
 
@@ -209,5 +209,27 @@ describe('DataPreview statistics tab', () => {
     await stats!.trigger('click')
     await data!.trigger('click')
     expect(names(wrapper)).toEqual(['Luis'])
+  })
+})
+
+describe('DataPreview charts tab', () => {
+  beforeEach(() => localStorage.clear())
+
+  it('has three tabs and opens the dashboard', async () => {
+    const wrapper = mount(DataPreview, { props: people })
+    const tabs = wrapper.findAll('[role=tab]')
+    expect(tabs.map((t) => t.text())).toEqual(['Data', 'Statistics', 'Charts'])
+    await tabs[2]!.trigger('click')
+    await vi.waitFor(() => expect(wrapper.find('[data-testid=dashboard-empty]').exists()).toBe(true), { timeout: 5000 })
+    expect(wrapper.get('[role=region]').attributes('aria-label')).toBe('Chart dashboard')
+    expect(wrapper.find('[data-testid=pager-label]').exists()).toBe(false)
+  })
+
+  it('charts the filtered rows', async () => {
+    const wrapper = mount(DataPreview, { props: people })
+    await wrapper.get('input[type=search]').setValue('luis')
+    await wrapper.findAll('[role=tab]')[2]!.trigger('click')
+    await vi.waitFor(() => expect(wrapper.find('[data-testid=charts-basis]').exists()).toBe(true), { timeout: 5000 })
+    expect(wrapper.get('[data-testid=charts-basis]').text()).toContain('Charts use the 1 of 4 filtered rows.')
   })
 })
