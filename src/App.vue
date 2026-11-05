@@ -1,35 +1,44 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, shallowRef } from 'vue'
 import FileUpload from './components/FileUpload.vue'
 import DataPreview from './components/DataPreview.vue'
 import ThemeToggle from './components/ThemeToggle.vue'
-import { isCsvFile, parseCsv, type CsvResult } from './csv/parseCsv'
+import { importFile, type ImportResult } from './import/importFile'
 
 const title = 'Data Explorer'
+const file = shallowRef<File | null>(null)
 const fileName = ref('')
 const fileSize = ref(0)
-const result = ref<CsvResult | null>(null)
+const result = ref<ImportResult | null>(null)
 const error = ref('')
+/** Changes with every successful load so the preview starts fresh (filters, sorting, page). */
+const loadId = ref(0)
 
-async function onSelect(file: File) {
+async function load(selected: File, sheet?: string) {
+  const imported = await importFile(selected, { sheet })
+  if (imported.ok) {
+    file.value = selected
+    fileName.value = selected.name
+    fileSize.value = selected.size
+    result.value = imported
+    error.value = ''
+    loadId.value++
+  } else {
+    error.value = imported.error
+  }
+  return imported.ok
+}
+
+async function onSelect(selected: File) {
   result.value = null
+  file.value = null
   error.value = ''
-  if (!isCsvFile(file)) {
-    error.value = `"${file.name}" is not a CSV file. Please choose a file ending in .csv.`
-    return
-  }
-  try {
-    const parsed = parseCsv(await file.text())
-    if (parsed.ok) {
-      fileName.value = file.name
-      fileSize.value = file.size
-      result.value = parsed
-    } else {
-      error.value = parsed.error
-    }
-  } catch {
-    error.value = 'The file could not be read. Please try again or choose another file.'
-  }
+  await load(selected)
+}
+
+/** Switching sheet keeps the current data if the chosen sheet cannot be read. */
+async function onSheet(name: string) {
+  if (file.value) await load(file.value, name)
 }
 </script>
 
@@ -91,7 +100,7 @@ async function onSelect(file: File) {
         v-if="!result?.ok"
         class="intro"
       >
-        Upload a CSV file to explore it. No code needed.
+        Upload a CSV, Excel or JSON file to explore it. No code needed.
       </p>
       <FileUpload
         :compact="!!result?.ok"
@@ -107,11 +116,15 @@ async function onSelect(file: File) {
       </div>
       <DataPreview
         v-if="result?.ok"
+        :key="loadId"
         :file-name="fileName"
         :file-size="fileSize"
         :headers="result.headers"
         :rows="result.rows"
         :warnings="result.warnings"
+        :sheets="result.sheets"
+        :sheet="result.sheet"
+        @sheet="onSheet"
       />
     </main>
   </div>

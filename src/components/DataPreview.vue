@@ -21,9 +21,13 @@ const props = withDefaults(
     rows: string[][]
     warnings: string[]
     pageSize?: number
+    /** Sheet names when the file is a workbook, and the one being shown. */
+    sheets?: string[]
+    sheet?: string
   }>(),
-  { fileSize: undefined, pageSize: 100 },
+  { fileSize: undefined, pageSize: 100, sheets: undefined, sheet: undefined },
 )
+const emit = defineEmits<{ sheet: [name: string] }>()
 
 // Loaded on demand so ECharts is not part of the initial download.
 const DashboardPanel = defineAsyncComponent(() => import('./DashboardPanel.vue'))
@@ -105,6 +109,22 @@ function clearFilters() {
           class="size"
           data-testid="size"
         >{{ formatSize(fileSize) }}</span>
+        <label
+          v-if="sheets && sheets.length > 1"
+          class="sheet"
+        >
+          Sheet
+          <select
+            :value="sheet"
+            @change="emit('sheet', ($event.target as HTMLSelectElement).value)"
+          >
+            <option
+              v-for="name in sheets"
+              :key="name"
+              :value="name"
+            >{{ name }}</option>
+          </select>
+        </label>
       </div>
       <div
         class="chips"
@@ -347,6 +367,22 @@ function clearFilters() {
 h2 {
   font-size: 1.125rem;
   overflow-wrap: anywhere;
+}
+.sheet {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+.sheet select {
+  max-width: 12rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
 }
 .size {
   color: var(--text-muted);
