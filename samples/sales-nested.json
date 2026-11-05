@@ -1,0 +1,984 @@
+[
+ {
+  "order_id": "ORD-1001",
+  "order_date": "2025-03-13",
+  "customer": {
+   "name": "Raul Lopez",
+   "region": "South"
+  },
+  "item": {
+   "product": "Monitor",
+   "category": "Electronics",
+   "quantity": 1,
+   "unit_price": 215.05
+  },
+  "total": 182.79,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1002",
+  "order_date": "2025-04-22",
+  "customer": {
+   "name": "Pedro Moreno",
+   "region": "North"
+  },
+  "item": {
+   "product": "Monitor",
+   "category": "Electronics",
+   "quantity": 5,
+   "unit_price": 209.7
+  },
+  "total": 996.07,
+  "tags": [
+   "urgent"
+  ]
+ },
+ {
+  "order_id": "ORD-1003",
+  "order_date": "2025-08-03",
+  "customer": {
+   "name": "Pedro Diaz",
+   "region": "Central"
+  },
+  "item": {
+   "product": "Laptop",
+   "category": "Electronics",
+   "quantity": 5,
+   "unit_price": 919.44
+  },
+  "total": 4597.2,
+  "tags": [
+   "urgent"
+  ]
+ },
+ {
+  "order_id": "ORD-1004",
+  "order_date": "2025-05-23",
+  "customer": {
+   "name": "Marta Sanchez",
+   "region": "East"
+  },
+  "item": {
+   "product": "Desk",
+   "category": "Furniture",
+   "quantity": 1,
+   "unit_price": 316.14
+  },
+  "total": 316.14,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1005",
+  "order_date": "2025-06-26",
+  "customer": {
+   "name": "Pablo Perez",
+   "region": "East"
+  },
+  "item": {
+   "product": "Chair",
+   "category": "Furniture",
+   "quantity": 1,
+   "unit_price": 177.84
+  },
+  "total": 177.84,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1006",
+  "order_date": "2025-02-10",
+  "customer": {
+   "name": "Sara Perez",
+   "region": "West"
+  },
+  "item": {
+   "product": "Laptop",
+   "category": "Electronics",
+   "quantity": 6,
+   "unit_price": 903.26
+  },
+  "total": 5148.58,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1007",
+  "order_date": "2025-12-05",
+  "customer": {
+   "name": "Pedro Perez",
+   "region": "North"
+  },
+  "item": {
+   "product": "Chair",
+   "category": "Furniture",
+   "quantity": 5,
+   "unit_price": 183.68
+  },
+  "total": 918.4,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1008",
+  "order_date": "2025-03-25",
+  "customer": {
+   "name": "Jorge Gomez",
+   "region": "East"
+  },
+  "item": {
+   "product": "Mouse",
+   "category": "Accessories",
+   "quantity": 1,
+   "unit_price": 24.44
+  },
+  "total": 23.22,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1009",
+  "order_date": "2025-11-22",
+  "customer": {
+   "name": "Marta Moreno",
+   "region": "Central"
+  },
+  "item": {
+   "product": "Desk",
+   "category": "Furniture",
+   "quantity": 6,
+   "unit_price": 314.59
+  },
+  "total": 1604.41,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1010",
+  "order_date": "2025-04-23",
+  "customer": {
+   "name": "Irene Gomez",
+   "region": "Central"
+  },
+  "item": {
+   "product": "Mouse",
+   "category": "Accessories",
+   "quantity": 2,
+   "unit_price": 24.7
+  },
+  "total": 46.93,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1011",
+  "order_date": "2025-05-18",
+  "customer": {
+   "name": "Luis Sanchez",
+   "region": "West"
+  },
+  "item": {
+   "product": "Laptop",
+   "category": "Electronics",
+   "quantity": 2,
+   "unit_price": 927.45
+  },
+  "total": 1854.9,
+  "tags": [
+   "urgent"
+  ]
+ },
+ {
+  "order_id": "ORD-1012",
+  "order_date": "2025-03-15",
+  "customer": {
+   "name": "Lucia Martin",
+   "region": "West"
+  },
+  "item": {
+   "product": "Chair",
+   "category": "Furniture",
+   "quantity": 2,
+   "unit_price": 179.99
+  },
+  "total": 305.98,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1013",
+  "order_date": "2025-07-24",
+  "customer": {
+   "name": "Jorge Sanchez",
+   "region": "Central"
+  },
+  "item": {
+   "product": "Desk",
+   "category": "Furniture",
+   "quantity": 6,
+   "unit_price": 307.78
+  },
+  "total": 1662.01,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1014",
+  "order_date": "2025-11-18",
+  "customer": {
+   "name": "Marta Ruiz",
+   "region": "South"
+  },
+  "item": {
+   "product": "Tablet",
+   "category": "Electronics",
+   "quantity": 1,
+   "unit_price": 414.44
+  },
+  "total": 414.44,
+  "tags": [
+   "urgent"
+  ]
+ },
+ {
+  "order_id": "ORD-1015",
+  "order_date": "2025-09-28",
+  "customer": {
+   "name": "Lucia Moreno",
+   "region": "West"
+  },
+  "item": {
+   "product": "Monitor",
+   "category": "Electronics",
+   "quantity": 4,
+   "unit_price": 222.11
+  },
+  "total": 844.02,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1016",
+  "order_date": "2025-05-17",
+  "customer": {
+   "name": "Nuria Gomez",
+   "region": "Central"
+  },
+  "item": {
+   "product": "Laptop",
+   "category": "Electronics",
+   "quantity": 6,
+   "unit_price": 865.31
+  },
+  "total": 4413.08,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1017",
+  "order_date": "2025-09-14",
+  "customer": {
+   "name": "Nuria Martin",
+   "region": "East"
+  },
+  "item": {
+   "product": "Desk",
+   "category": "Furniture",
+   "quantity": 4,
+   "unit_price": 308.57
+  },
+  "total": 1234.28,
+  "tags": [
+   "urgent"
+  ]
+ },
+ {
+  "order_id": "ORD-1018",
+  "order_date": "2025-11-08",
+  "customer": {
+   "name": "Pedro Martin",
+   "region": "Central"
+  },
+  "item": {
+   "product": "Monitor",
+   "category": "Electronics",
+   "quantity": 6,
+   "unit_price": 227.52
+  },
+  "total": 1365.12,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1019",
+  "order_date": "2025-06-15",
+  "customer": {
+   "name": "Diego Garcia",
+   "region": "Central"
+  },
+  "item": {
+   "product": "Keyboard",
+   "category": "Accessories",
+   "quantity": 5,
+   "unit_price": 46.88
+  },
+  "total": 210.96,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1020",
+  "order_date": "2025-02-10",
+  "customer": {
+   "name": "Luis Diaz",
+   "region": "Central"
+  },
+  "item": {
+   "product": "Chair",
+   "category": "Furniture",
+   "quantity": 3,
+   "unit_price": 172.04
+  },
+  "total": 516.12,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1021",
+  "order_date": "2025-10-09",
+  "customer": {
+   "name": "Marta Perez",
+   "region": "West"
+  },
+  "item": {
+   "product": "Monitor",
+   "category": "Electronics",
+   "quantity": 5,
+   "unit_price": 211.82
+  },
+  "total": 1059.1,
+  "tags": [
+   "urgent"
+  ]
+ },
+ {
+  "order_id": "ORD-1022",
+  "order_date": "2025-06-09",
+  "customer": {
+   "name": "Elena Gomez",
+   "region": "South"
+  },
+  "item": {
+   "product": "Headset",
+   "category": "Accessories",
+   "quantity": 2,
+   "unit_price": 71.79
+  },
+  "total": 129.22,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1023",
+  "order_date": "2025-01-11",
+  "customer": {
+   "name": "Pablo Moreno",
+   "region": "East"
+  },
+  "item": {
+   "product": "Tablet",
+   "category": "Electronics",
+   "quantity": 1,
+   "unit_price": 388.99
+  },
+  "total": 388.99,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1024",
+  "order_date": "2025-04-28",
+  "customer": {
+   "name": "Luis Garcia",
+   "region": "North"
+  },
+  "item": {
+   "product": "Mouse",
+   "category": "Accessories",
+   "quantity": 1,
+   "unit_price": 25.52
+  },
+  "total": 25.52,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1025",
+  "order_date": "2025-04-20",
+  "customer": {
+   "name": "Sara Martin",
+   "region": "West"
+  },
+  "item": {
+   "product": "Chair",
+   "category": "Furniture",
+   "quantity": 1,
+   "unit_price": 175.28
+  },
+  "total": 157.75,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1026",
+  "order_date": "2025-02-18",
+  "customer": {
+   "name": "Luis Ruiz",
+   "region": "South"
+  },
+  "item": {
+   "product": "Tablet",
+   "category": "Electronics",
+   "quantity": 2,
+   "unit_price": 412.3
+  },
+  "total": 783.37,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1027",
+  "order_date": "2025-12-11",
+  "customer": {
+   "name": "Irene Lopez",
+   "region": "North"
+  },
+  "item": {
+   "product": "Headset",
+   "category": "Accessories",
+   "quantity": 4,
+   "unit_price": 72.55
+  },
+  "total": 275.69,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1028",
+  "order_date": "2025-05-08",
+  "customer": {
+   "name": "Pedro Sanchez",
+   "region": "North"
+  },
+  "item": {
+   "product": "Headset",
+   "category": "Accessories",
+   "quantity": 6,
+   "unit_price": 72.1
+  },
+  "total": 432.6,
+  "tags": [
+   "urgent"
+  ]
+ },
+ {
+  "order_id": "ORD-1029",
+  "order_date": "2025-05-08",
+  "customer": {
+   "name": "Hugo Lopez",
+   "region": "West"
+  },
+  "item": {
+   "product": "Tablet",
+   "category": "Electronics",
+   "quantity": 2,
+   "unit_price": 387.34
+  },
+  "total": 735.95,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1030",
+  "order_date": "2025-02-17",
+  "customer": {
+   "name": "Clara Sanchez",
+   "region": "North"
+  },
+  "item": {
+   "product": "Monitor",
+   "category": "Electronics",
+   "quantity": 1,
+   "unit_price": 230.98
+  },
+  "total": 196.33,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1031",
+  "order_date": "2025-01-31",
+  "customer": {
+   "name": "Marta Ruiz",
+   "region": "West"
+  },
+  "item": {
+   "product": "Headset",
+   "category": "Accessories",
+   "quantity": 4,
+   "unit_price": 68
+  },
+  "total": 258.4,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1032",
+  "order_date": "2025-12-05",
+  "customer": {
+   "name": "Raul Diaz",
+   "region": "Central"
+  },
+  "item": {
+   "product": "Headset",
+   "category": "Accessories",
+   "quantity": 3,
+   "unit_price": 68.5
+  },
+  "total": 195.22,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1033",
+  "order_date": "2025-10-05",
+  "customer": {
+   "name": "Ana Gomez",
+   "region": "Central"
+  },
+  "item": {
+   "product": "Mouse",
+   "category": "Accessories",
+   "quantity": 3,
+   "unit_price": 26.17
+  },
+  "total": 78.51,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1034",
+  "order_date": "2025-03-22",
+  "customer": {
+   "name": "Ana Moreno",
+   "region": "Central"
+  },
+  "item": {
+   "product": "Laptop",
+   "category": "Electronics",
+   "quantity": 5,
+   "unit_price": 900.26
+  },
+  "total": 4276.23,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1035",
+  "order_date": "2025-07-26",
+  "customer": {
+   "name": "Luis Alvarez",
+   "region": "South"
+  },
+  "item": {
+   "product": "Keyboard",
+   "category": "Accessories",
+   "quantity": 1,
+   "unit_price": 43.06
+  },
+  "total": 38.75,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1036",
+  "order_date": "2025-10-17",
+  "customer": {
+   "name": "Sara Gomez",
+   "region": "Central"
+  },
+  "item": {
+   "product": "Laptop",
+   "category": "Electronics",
+   "quantity": 5,
+   "unit_price": 892.73
+  },
+  "total": 4463.65,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1037",
+  "order_date": "2025-07-22",
+  "customer": {
+   "name": "Marta Perez",
+   "region": null
+  },
+  "item": {
+   "product": "Mouse",
+   "category": "Accessories",
+   "quantity": 6,
+   "unit_price": 24.54
+  },
+  "total": 125.15,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1038",
+  "order_date": "2025-02-21",
+  "customer": {
+   "name": "Luis Moreno",
+   "region": "Central"
+  },
+  "item": {
+   "product": "Chair",
+   "category": "Furniture",
+   "quantity": 1,
+   "unit_price": 179.25
+  },
+  "total": 179.25,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1039",
+  "order_date": "2025-07-09",
+  "customer": {
+   "name": "Lucia Martin",
+   "region": "South"
+  },
+  "item": {
+   "product": "Desk",
+   "category": "Furniture",
+   "quantity": 2,
+   "unit_price": 321.81
+  },
+  "total": 643.62,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1040",
+  "order_date": "2025-06-03",
+  "customer": {
+   "name": "Clara Lopez",
+   "region": "Central"
+  },
+  "item": {
+   "product": "Desk",
+   "category": "Furniture",
+   "quantity": 5,
+   "unit_price": 310.9
+  },
+  "total": 1321.33,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1041",
+  "order_date": "2025-05-20",
+  "customer": {
+   "name": "Lucia Alvarez",
+   "region": "South"
+  },
+  "item": {
+   "product": "Desk",
+   "category": "Furniture",
+   "quantity": 1,
+   "unit_price": 317.51
+  },
+  "total": 317.51,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1042",
+  "order_date": "2025-09-16",
+  "customer": {
+   "name": "Diego Perez",
+   "region": "East"
+  },
+  "item": {
+   "product": "Chair",
+   "category": "Furniture",
+   "quantity": 2,
+   "unit_price": 182.42
+  },
+  "total": 310.11,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1043",
+  "order_date": "2025-01-23",
+  "customer": {
+   "name": "Ana Gomez",
+   "region": "East"
+  },
+  "item": {
+   "product": "Laptop",
+   "category": "Electronics",
+   "quantity": 1,
+   "unit_price": 893.12
+  },
+  "total": 759.15,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1044",
+  "order_date": "2025-10-10",
+  "customer": {
+   "name": "Raul Ruiz",
+   "region": "West"
+  },
+  "item": {
+   "product": "Keyboard",
+   "category": "Accessories",
+   "quantity": 6,
+   "unit_price": 43.48
+  },
+  "total": 260.88,
+  "tags": [
+   "urgent"
+  ]
+ },
+ {
+  "order_id": "ORD-1045",
+  "order_date": "2025-10-07",
+  "customer": {
+   "name": "Ana Gomez",
+   "region": "South"
+  },
+  "item": {
+   "product": "Laptop",
+   "category": "Electronics",
+   "quantity": 1,
+   "unit_price": 940.05
+  },
+  "total": 940.05,
+  "tags": [
+   "urgent"
+  ]
+ },
+ {
+  "order_id": "ORD-1046",
+  "order_date": "2025-01-21",
+  "customer": {
+   "name": "Clara Gomez",
+   "region": "East"
+  },
+  "item": {
+   "product": "Keyboard",
+   "category": "Accessories",
+   "quantity": 4,
+   "unit_price": 42.94
+  },
+  "total": 171.76,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1047",
+  "order_date": "2025-07-28",
+  "customer": {
+   "name": "Pablo Martin",
+   "region": "Central"
+  },
+  "item": {
+   "product": "Mouse",
+   "category": "Accessories",
+   "quantity": 6,
+   "unit_price": 24.63
+  },
+  "total": 147.78,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1048",
+  "order_date": "2025-07-30",
+  "customer": {
+   "name": "Nuria Sanchez",
+   "region": "East"
+  },
+  "item": {
+   "product": "Keyboard",
+   "category": "Accessories",
+   "quantity": 2,
+   "unit_price": 42.86
+  },
+  "total": 81.43,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1049",
+  "order_date": "2025-08-29",
+  "customer": {
+   "name": "Pedro Sanchez",
+   "region": "North"
+  },
+  "item": {
+   "product": "Keyboard",
+   "category": "Accessories",
+   "quantity": 6,
+   "unit_price": 44.47
+  },
+  "total": 266.82,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1050",
+  "order_date": "2025-04-25",
+  "customer": {
+   "name": "Ana Sanchez",
+   "region": "South"
+  },
+  "item": {
+   "product": "Tablet",
+   "category": "Electronics",
+   "quantity": 3,
+   "unit_price": 412.82
+  },
+  "total": 1238.46,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1051",
+  "order_date": "2025-06-29",
+  "customer": {
+   "name": "Irene Moreno",
+   "region": "East"
+  },
+  "item": {
+   "product": "Chair",
+   "category": "Furniture",
+   "quantity": 3,
+   "unit_price": 188.4
+  },
+  "total": 565.2,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1052",
+  "order_date": "2025-04-02",
+  "customer": {
+   "name": "Pablo Perez",
+   "region": "East"
+  },
+  "item": {
+   "product": "Chair",
+   "category": "Furniture",
+   "quantity": 1,
+   "unit_price": 186.79
+  },
+  "total": 186.79,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1053",
+  "order_date": "2025-08-12",
+  "customer": {
+   "name": "Pablo Moreno",
+   "region": "East"
+  },
+  "item": {
+   "product": "Monitor",
+   "category": "Electronics",
+   "quantity": 5,
+   "unit_price": 216.61
+  },
+  "total": 1028.9,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1054",
+  "order_date": "2025-01-01",
+  "customer": {
+   "name": "Sara Moreno",
+   "region": "West"
+  },
+  "item": {
+   "product": "Headset",
+   "category": "Accessories",
+   "quantity": 5,
+   "unit_price": 68.28
+  },
+  "total": 341.4,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1055",
+  "order_date": "2025-11-16",
+  "customer": {
+   "name": "Jorge Lopez",
+   "region": "East"
+  },
+  "item": {
+   "product": "Mouse",
+   "category": "Accessories",
+   "quantity": 3,
+   "unit_price": 23.92
+  },
+  "total": 68.17,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1056",
+  "order_date": "2025-07-26",
+  "customer": {
+   "name": "Raul Perez",
+   "region": "East"
+  },
+  "item": {
+   "product": "Desk",
+   "category": "Furniture",
+   "quantity": 5,
+   "unit_price": 315.17
+  },
+  "total": 1575.85,
+  "tags": [
+   "urgent"
+  ]
+ },
+ {
+  "order_id": "ORD-1057",
+  "order_date": "2025-12-13",
+  "customer": {
+   "name": "Raul Martin",
+   "region": "West"
+  },
+  "item": {
+   "product": "Keyboard",
+   "category": "Accessories",
+   "quantity": 2,
+   "unit_price": 45.74
+  },
+  "total": 86.91,
+  "tags": [
+   "urgent"
+  ]
+ },
+ {
+  "order_id": "ORD-1058",
+  "order_date": "2025-05-27",
+  "customer": {
+   "name": "Pedro Ruiz",
+   "region": "East"
+  },
+  "item": {
+   "product": "Desk",
+   "category": "Furniture",
+   "quantity": 4,
+   "unit_price": 320.35
+  },
+  "total": 1153.26,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1059",
+  "order_date": "2025-09-19",
+  "customer": {
+   "name": "Diego Martin",
+   "region": "South"
+  },
+  "item": {
+   "product": "Chair",
+   "category": "Furniture",
+   "quantity": 4,
+   "unit_price": 178.96
+  },
+  "total": 680.05,
+  "tags": []
+ },
+ {
+  "order_id": "ORD-1060",
+  "order_date": "2025-06-21",
+  "customer": {
+   "name": "Luis Sanchez",
+   "region": "Central"
+  },
+  "item": {
+   "product": "Monitor",
+   "category": "Electronics",
+   "quantity": 3,
+   "unit_price": 223.6
+  },
+  "total": 603.72,
+  "tags": []
+ }
+]
