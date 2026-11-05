@@ -1,0 +1,11 @@
+{
+  "name": "data-explorer",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
+  "postCreateCommand": "npm install",
+  "forwardPorts": [5173],
+  "customizations": {
+    "vscode": {
+      "extensions": ["Vue.volar", "dbaeumer.vscode-eslint", "vitest.explorer"]
+    }
+  }
+}
