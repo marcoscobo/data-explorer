@@ -116,6 +116,10 @@ function formatSize(bytes: number) {
 
 <style scoped>
 .card {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -124,6 +128,7 @@ function formatSize(bytes: number) {
 }
 .head {
   display: flex;
+  flex: none;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
@@ -160,6 +165,7 @@ h2 {
   white-space: nowrap;
 }
 .banner {
+  flex: none;
   margin: 1rem 1.25rem 0;
   padding: 0.75rem 1rem;
   border: 1px solid var(--warn-border);
@@ -173,9 +179,10 @@ h2 {
   padding-left: 1.25rem;
 }
 .scroll {
-  overflow: auto;
-  max-height: 60vh;
+  flex: 1 1 auto;
+  min-height: 0;
   margin-top: 1rem;
+  overflow: auto; /* the single scroll area of the page, both directions */
 }
 table {
   width: 100%;
@@ -208,6 +215,7 @@ tbody tr:hover {
   background: var(--accent-soft);
 }
 .note {
+  flex: none;
   margin: 0;
   padding: 0.75rem 1.25rem;
   border-top: 1px solid var(--border);

@@ -56,4 +56,28 @@ describe('App', () => {
     const wrapper = await upload(new File([''], 'empty.csv', { type: 'text/csv' }))
     expect(wrapper.get('[role=alert]').text()).toContain("We couldn't open this file")
   })
+
+  it('shrinks the upload zone and hides the intro once data is loaded', async () => {
+    const empty = mount(App)
+    expect(empty.get('[data-testid=dropzone]').classes()).not.toContain('compact')
+    expect(empty.text()).toContain('Upload a CSV file to explore it')
+
+    const wrapper = await upload(new File(['a\n1\n'], 'ok.csv', { type: 'text/csv' }))
+    expect(wrapper.get('[data-testid=dropzone]').classes()).toContain('compact')
+    expect(wrapper.get('main').classes()).toContain('loaded')
+    expect(wrapper.text()).not.toContain('Upload a CSV file to explore it')
+  })
+
+  it('has exactly one scroll area for the data', async () => {
+    const wrapper = await upload(new File(['a\n1\n'], 'ok.csv', { type: 'text/csv' }))
+    expect(wrapper.findAll('[role=region]')).toHaveLength(1)
+  })
+
+  it('has a theme toggle that switches the theme', async () => {
+    const wrapper = mount(App)
+    await wrapper.get('button[aria-label^="Switch to"]').trigger('click')
+    expect(document.documentElement.dataset.theme).toBe('dark')
+    await wrapper.get('button[aria-label^="Switch to"]').trigger('click')
+    expect(document.documentElement.dataset.theme).toBe('light')
+  })
 })

@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import FileUpload from './components/FileUpload.vue'
 import DataPreview from './components/DataPreview.vue'
+import ThemeToggle from './components/ThemeToggle.vue'
 import { isCsvFile, parseCsv, type CsvResult } from './csv/parseCsv'
 
 const title = 'Data Explorer'
@@ -54,36 +55,48 @@ async function onSelect(file: File) {
         </span>
         <h1>{{ title }}</h1>
       </div>
-      <p class="privacy">
-        <svg
-          viewBox="0 0 24 24"
-          width="16"
-          height="16"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <rect
-            x="5"
-            y="11"
-            width="14"
-            height="9"
-            rx="2"
-          />
-          <path d="M8 11V8a4 4 0 0 1 8 0v3" />
-        </svg>
-        Your data stays in your browser
-      </p>
+      <div class="actions">
+        <p class="privacy">
+          <svg
+            viewBox="0 0 24 24"
+            width="16"
+            height="16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <rect
+              x="5"
+              y="11"
+              width="14"
+              height="9"
+              rx="2"
+            />
+            <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+          </svg>
+          Your data stays in your browser
+        </p>
+        <ThemeToggle />
+      </div>
     </header>
 
-    <main class="main">
-      <p class="intro">
+    <main
+      class="main"
+      :class="{ loaded: result?.ok }"
+    >
+      <p
+        v-if="!result?.ok"
+        class="intro"
+      >
         Upload a CSV file to explore it. No code needed.
       </p>
-      <FileUpload @select="onSelect" />
+      <FileUpload
+        :compact="!!result?.ok"
+        @select="onSelect"
+      />
       <div
         v-if="error"
         role="alert"
@@ -106,9 +119,14 @@ async function onSelect(file: File) {
 
 <style scoped>
 .page {
-  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 1.25rem 1rem 3rem;
+  padding: 1rem 1rem 1rem;
+  overflow: hidden; /* the page never scrolls; the data area is the only scroller */
 }
 .header {
   display: flex;
@@ -116,7 +134,12 @@ async function onSelect(file: File) {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 1rem;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
 }
 .brand {
   display: flex;
@@ -149,8 +172,14 @@ h1 {
 }
 .main {
   display: flex;
+  flex: 1;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1rem;
+  min-height: 0;
+  overflow-y: auto; /* only the empty state may need it on very short screens */
+}
+.main.loaded {
+  overflow: hidden;
 }
 .intro {
   margin: 0;
