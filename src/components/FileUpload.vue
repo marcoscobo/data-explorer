@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+defineProps<{ compact?: boolean }>()
 const emit = defineEmits<{ select: [file: File] }>()
 const dragging = ref(false)
 
@@ -21,7 +22,7 @@ function onDrop(event: DragEvent) {
 <template>
   <div
     class="upload"
-    :class="{ dragging }"
+    :class="{ dragging, compact }"
     data-testid="dropzone"
     @dragover.prevent="dragging = true"
     @dragleave="dragging = false"
@@ -46,7 +47,7 @@ function onDrop(event: DragEvent) {
       </svg>
     </span>
     <label class="label">
-      <span class="title">Drop your CSV here</span>
+      <span class="title">{{ compact ? 'Drop another CSV here' : 'Drop your CSV here' }}</span>
       <span class="hint">or <span class="browse">browse your files</span></span>
       <input
         class="input"
@@ -118,5 +119,32 @@ function onDrop(event: DragEvent) {
   height: 100%;
   opacity: 0;
   cursor: pointer;
+}
+
+.upload.compact {
+  flex: none;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.625rem 1rem;
+  border-width: 1px;
+  box-shadow: none;
+}
+.compact .icon {
+  width: 32px;
+  height: 32px;
+}
+.compact .icon svg {
+  width: 18px;
+  height: 18px;
+}
+.compact .label {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.compact .title {
+  font-size: 0.9375rem;
 }
 </style>

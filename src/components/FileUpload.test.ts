@@ -35,4 +35,13 @@ describe('FileUpload', () => {
     await zone.trigger('dragleave')
     expect(zone.classes()).not.toContain('dragging')
   })
+
+  it('is large by default and compact when asked', () => {
+    const full = mount(FileUpload)
+    expect(full.get('[data-testid=dropzone]').classes()).not.toContain('compact')
+    expect(full.text()).toContain('Drop your CSV here')
+    const small = mount(FileUpload, { props: { compact: true } })
+    expect(small.get('[data-testid=dropzone]').classes()).toContain('compact')
+    expect(small.text()).toContain('Drop another CSV here')
+  })
 })
