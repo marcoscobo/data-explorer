@@ -12,21 +12,50 @@ const shown = computed(() => props.rows.slice(0, props.limit))
 <template>
   <section>
     <h2>{{ fileName }}</h2>
-    <p data-testid="summary">{{ rows.length }} rows, {{ headers.length }} columns</p>
-    <ul v-if="warnings.length" data-testid="warnings" class="warnings">
-      <li v-for="w in warnings" :key="w">{{ w }}</li>
+    <p data-testid="summary">
+      {{ rows.length }} rows, {{ headers.length }} columns
+    </p>
+    <ul
+      v-if="warnings.length"
+      data-testid="warnings"
+      class="warnings"
+    >
+      <li
+        v-for="w in warnings"
+        :key="w"
+      >
+        {{ w }}
+      </li>
     </ul>
-    <p v-if="rows.length > limit" data-testid="truncated">Showing the first {{ limit }} of {{ rows.length }} rows.</p>
+    <p
+      v-if="rows.length > limit"
+      data-testid="truncated"
+    >
+      Showing the first {{ limit }} of {{ rows.length }} rows.
+    </p>
     <div class="scroll">
       <table>
         <thead>
           <tr>
-            <th v-for="(h, i) in headers" :key="i">{{ h }}</th>
+            <th
+              v-for="(h, i) in headers"
+              :key="i"
+            >
+              {{ h }}
+            </th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(row, r) in shown" :key="r">
-            <td v-for="(_, c) in headers" :key="c">{{ row[c] ?? '' }}</td>
+          <tr
+            v-for="(row, r) in shown"
+            :key="r"
+          >
+            <td
+              v-for="(_, c) in headers"
+              :key="c"
+            >
+              {{ row[c] ?? '' }}
+            </td>
           </tr>
         </tbody>
       </table>

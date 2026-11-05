@@ -27,7 +27,11 @@ function onDrop(event: DragEvent) {
   >
     <label>
       Choose a CSV file or drop it here
-      <input type="file" accept=".csv,text/csv" @change="onChange" />
+      <input
+        type="file"
+        accept=".csv,text/csv"
+        @change="onChange"
+      >
     </label>
   </div>
 </template>

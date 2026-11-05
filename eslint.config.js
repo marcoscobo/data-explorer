@@ -8,6 +8,10 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   ...pluginVue.configs['flat/recommended'],
   {
+    files: ['**/*.ts', '**/*.vue'],
+    rules: { 'no-undef': 'off' }, // TypeScript already checks undefined globals
+  },
+  {
     files: ['**/*.vue'],
     languageOptions: { parserOptions: { parser: tseslint.parser } },
   },
