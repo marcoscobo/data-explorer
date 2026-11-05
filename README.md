@@ -6,7 +6,7 @@ Data Explorer is a web app that lets non-technical business users analyze their 
 
 ## Features (planned)
 
-- Load a CSV file from your computer and preview it (parsed in the browser with Papa Parse; clear errors for invalid files) — implemented
+- Load a CSV, Excel (.xlsx) or JSON file from your computer and preview it (parsed in the browser with Papa Parse, read-excel-file and the built-in JSON parser; clear errors for invalid files) — implemented
 - Sort (click a column header), filter (global search and per-column filters) and paginate the data — implemented
 - Basic statistics per column (counts, missing, unique, min/max/mean/median/std dev, dates, most frequent values), computed on the filtered rows — implemented
 - Plain-language summaries
@@ -20,7 +20,7 @@ Data Explorer is a web app that lets non-technical business users analyze their 
 - Vitest + Vue Test Utils for tests
 - ESLint for linting
 
-The CSV parser is Papa Parse.
+CSV is parsed with Papa Parse and Excel with read-excel-file (loaded on demand).
 
 ## Getting started
 
@@ -66,3 +66,13 @@ Prepared for Vercel: the build outputs to `dist/` and serverless functions live 
 - Chart types: bar, line, pie (up to 7 categories plus "Other") and scatter (sampled above 5,000 points).
 - A saved chart contains only its type, title, column names and aggregation. Rows and cell values are never stored or exported; everything saved passes through a whitelist (`src/charts/chartConfig.ts`).
 - Dashboards are kept in the browser's `localStorage`, per set of column names and types, and can be exported or loaded as a small JSON file. Loading adds charts and skips any that refer to columns the current file does not have.
+
+## Supported files
+
+| Format | Notes |
+| --- | --- |
+| `.csv` | Delimiter detected automatically. |
+| `.xlsx` | First sheet with data is shown; a **Sheet** menu appears for workbooks with several sheets. Date cells become ISO dates and formulas use their stored result. Legacy `.xls` is not supported: save it as `.xlsx` or CSV. |
+| `.json` | A list of objects (columns are the keys), a list of rows (first row is the header), or an object holding one such list. Nested objects become dotted columns (`customer.name`); arrays are kept as JSON text. |
+
+All formats go through the same checks and warnings (blank or duplicate column names, uneven rows, no data rows). Example files, including error cases, are in `samples/` and contain only synthetic data.

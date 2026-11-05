@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { ACCEPT } from '../import/importFile'
 
 defineProps<{ compact?: boolean }>()
 const emit = defineEmits<{ select: [file: File] }>()
@@ -47,12 +48,12 @@ function onDrop(event: DragEvent) {
       </svg>
     </span>
     <label class="label">
-      <span class="title">{{ compact ? 'Drop another CSV here' : 'Drop your CSV here' }}</span>
-      <span class="hint">or <span class="browse">browse your files</span></span>
+      <span class="title">{{ compact ? 'Drop another file here' : 'Drop your file here' }}</span>
+      <span class="hint">CSV, Excel or JSON, or <span class="browse">browse your files</span></span>
       <input
         class="input"
         type="file"
-        accept=".csv,text/csv"
+        :accept="ACCEPT"
         @change="onChange"
       >
     </label>
