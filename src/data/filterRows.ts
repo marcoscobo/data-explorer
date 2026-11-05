@@ -1,7 +1,12 @@
 import { isMissing, parseNumber, type ColumnType } from './inferTypes'
 
 /** Text/date columns: case-insensitive "contains". Number columns: inclusive min/max. */
-export type ColumnFilter = { contains?: string } | { min?: number; max?: number }
+export type ContainsFilter = { contains?: string }
+export type RangeFilter = { min?: number; max?: number }
+export type ColumnFilter = ContainsFilter | RangeFilter
+
+export const isContainsFilter = (f: ColumnFilter): f is ContainsFilter => 'contains' in f
+export const isRangeFilter = (f: ColumnFilter): f is RangeFilter => !('contains' in f)
 
 export interface FilterState {
   search: string
@@ -10,14 +15,9 @@ export interface FilterState {
 
 export const emptyFilters = (): FilterState => ({ search: '', columns: {} })
 
-function hasContains(f: ColumnFilter): f is { contains?: string } {
-  return 'contains' in f
-}
-
 function isActive(f: ColumnFilter): boolean {
-  if (hasContains(f)) return !!f.contains?.trim()
-  const r = f as { min?: number; max?: number }
-  return isFiniteNumber(r.min) || isFiniteNumber(r.max)
+  if (isContainsFilter(f)) return !!f.contains?.trim()
+  return isFiniteNumber(f.min) || isFiniteNumber(f.max)
 }
 
 function isFiniteNumber(n: number | undefined): n is number {
@@ -30,7 +30,7 @@ export function hasActiveFilters(state: FilterState): boolean {
 
 function matchesColumn(value: string | undefined, filter: ColumnFilter, type: ColumnType): boolean {
   if (!isActive(filter)) return true
-  if (hasContains(filter)) {
+  if (isContainsFilter(filter)) {
     return (value ?? '').toLowerCase().includes((filter.contains as string).trim().toLowerCase())
   }
   if (type !== 'number' || isMissing(value)) return false

@@ -20,7 +20,7 @@ describe('App', () => {
     expect(wrapper.get('h2').text()).toBe('people.csv')
     expect(wrapper.get('[data-testid=rows]').text()).toBe('1 row')
     expect(wrapper.get('[data-testid=columns]').text()).toBe('2 columns')
-    expect(wrapper.findAll('th').map((t) => t.text())).toEqual(['name', 'age'])
+    expect(wrapper.findAll('thead tr:first-child th').map((t) => t.text())).toEqual(['name', 'age'])
   })
 
   it('shows a clear error for a non-CSV file', async () => {
@@ -79,5 +79,16 @@ describe('App', () => {
     expect(document.documentElement.dataset.theme).toBe('dark')
     await wrapper.get('button[aria-label^="Switch to"]').trigger('click')
     expect(document.documentElement.dataset.theme).toBe('light')
+  })
+
+  it('lets the user filter, sort and see statistics after uploading', async () => {
+    const csv = 'city,sales\nMadrid,10\nLeon,30\nVigo,20\n'
+    const wrapper = await upload(new File([csv], 'sales.csv', { type: 'text/csv' }))
+    await wrapper.findAll('button.sort')[1]!.trigger('click')
+    expect(wrapper.findAll('tbody tr').map((r) => r.findAll('td')[0]!.text())).toEqual(['Madrid', 'Vigo', 'Leon'])
+    await wrapper.get('input[aria-label="Minimum sales"]').setValue('15')
+    expect(wrapper.get('[data-testid=rows]').text()).toBe('2 of 3 rows')
+    await wrapper.findAll('[role=tab]')[1]!.trigger('click')
+    expect(wrapper.get('[data-testid=stats-basis]').text()).toContain('2 of 3 rows')
   })
 })
