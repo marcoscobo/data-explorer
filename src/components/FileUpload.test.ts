@@ -26,4 +26,13 @@ describe('FileUpload', () => {
     await input.trigger('change')
     expect(wrapper.emitted('select')).toBeUndefined()
   })
+
+  it('highlights the zone while dragging over it', async () => {
+    const wrapper = mount(FileUpload)
+    const zone = wrapper.get('[data-testid=dropzone]')
+    await zone.trigger('dragover')
+    expect(zone.classes()).toContain('dragging')
+    await zone.trigger('dragleave')
+    expect(zone.classes()).not.toContain('dragging')
+  })
 })
