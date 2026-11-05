@@ -6,7 +6,7 @@ Data Explorer is a web app that lets non-technical business users analyze their 
 
 ## Features (planned)
 
-- Load a CSV file from your computer
+- Load a CSV file from your computer and preview it (parsed in the browser with Papa Parse; clear errors for invalid files) — implemented
 - Automatic analysis and profiling of the data
 - Plain-language summaries
 - Charts generated from the data

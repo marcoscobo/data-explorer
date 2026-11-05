@@ -3,7 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "engines": { "node": ">=22.22.2" },
+  "engines": {
+    "node": ">=22.22.2"
+  },
   "scripts": {
     "dev": "vite",
     "typecheck": "vue-tsc --noEmit -p tsconfig.app.json && vue-tsc --noEmit -p tsconfig.node.json",
@@ -13,11 +15,13 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "papaparse": "5.7.0",
     "vue": "3.5.45"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@types/node": "22.15.0",
+    "@types/papaparse": "5.5.2",
     "@vercel/node": "29.0.1",
     "@vitejs/plugin-vue": "6.0.10",
     "@vue/test-utils": "2.5.1",
