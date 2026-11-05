@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, reactive, ref, watch } from 'vue'
+import { computed, defineAsyncComponent, reactive, ref, watch } from 'vue'
 import StatsPanel from './StatsPanel.vue'
 import { computeStats } from '../data/computeStats'
 import {
@@ -25,8 +25,12 @@ const props = withDefaults(
   { fileSize: undefined, pageSize: 100 },
 )
 
+// Loaded on demand so ECharts is not part of the initial download.
+const DashboardPanel = defineAsyncComponent(() => import('./DashboardPanel.vue'))
+
 const nf = new Intl.NumberFormat('en-US')
-const tab = ref<'data' | 'stats'>('data')
+const tab = ref<'data' | 'stats' | 'charts'>('data')
+const REGION_LABELS = { data: 'Data preview table', stats: 'Column statistics', charts: 'Chart dashboard' }
 const filters = reactive(emptyFilters())
 const sort = ref<SortState | null>(null)
 const page = ref(1)
@@ -140,6 +144,15 @@ function clearFilters() {
         >
           Statistics
         </button>
+        <button
+          type="button"
+          role="tab"
+          :aria-selected="tab === 'charts'"
+          :class="{ active: tab === 'charts' }"
+          @click="tab = 'charts'"
+        >
+          Charts
+        </button>
       </div>
       <input
         v-model="filters.search"
@@ -179,7 +192,7 @@ function clearFilters() {
       class="scroll"
       tabindex="0"
       role="region"
-      :aria-label="tab === 'data' ? 'Data preview table' : 'Column statistics'"
+      :aria-label="REGION_LABELS[tab]"
     >
       <table v-if="tab === 'data'">
         <thead>
@@ -263,6 +276,13 @@ function clearFilters() {
           </tr>
         </tbody>
       </table>
+      <DashboardPanel
+        v-else-if="tab === 'charts'"
+        :headers="headers"
+        :rows="filtered"
+        :types="types"
+        :total="rows.length"
+      />
       <StatsPanel
         v-else
         :stats="stats"
