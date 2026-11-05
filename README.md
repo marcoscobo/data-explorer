@@ -7,7 +7,8 @@ Data Explorer is a web app that lets non-technical business users analyze their 
 ## Features (planned)
 
 - Load a CSV file from your computer and preview it (parsed in the browser with Papa Parse; clear errors for invalid files) — implemented
-- Automatic analysis and profiling of the data
+- Sort (click a column header), filter (global search and per-column filters) and paginate the data — implemented
+- Basic statistics per column (counts, missing, unique, min/max/mean/median/std dev, dates, most frequent values), computed on the filtered rows — implemented
 - Plain-language summaries
 - Charts generated from the data
 - Dashboards combining several charts
@@ -52,3 +53,9 @@ Early stage. The project skeleton is in place; no features yet.
 ## Deployment
 
 Prepared for Vercel: the build outputs to `dist/` and serverless functions live in `/api`. Functions must never receive user data.
+
+## Data handling notes
+
+- Column types are detected automatically: numbers (dot decimal, no thousands separators), dates (ISO `YYYY-MM-DD`) and text. A column is numeric or a date when at least 90% of its non-empty values match.
+- Other formats (for example `45,50` or `13/03/2025`) are treated as text for now.
+- Standard deviation is the sample standard deviation (n - 1).
