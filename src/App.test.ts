@@ -45,4 +45,15 @@ describe('App', () => {
     expect(wrapper.find('table').exists()).toBe(false)
     expect(wrapper.find('[role=alert]').exists()).toBe(true)
   })
+
+  it('shows the privacy message and file size in the preview', async () => {
+    const wrapper = await upload(new File(['a\n1\n'], 'ok.csv', { type: 'text/csv' }))
+    expect(wrapper.text()).toContain('Your data stays in your browser')
+    expect(wrapper.get('[data-testid=size]').text()).toBe('4 B')
+  })
+
+  it('titles the error banner', async () => {
+    const wrapper = await upload(new File([''], 'empty.csv', { type: 'text/csv' }))
+    expect(wrapper.get('[role=alert]').text()).toContain("We couldn't open this file")
+  })
 })
