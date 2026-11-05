@@ -18,7 +18,8 @@ describe('App', () => {
     const wrapper = await upload(new File(['name,age\nAna,30\n'], 'people.csv', { type: 'text/csv' }))
     expect(wrapper.find('[role=alert]').exists()).toBe(false)
     expect(wrapper.get('h2').text()).toBe('people.csv')
-    expect(wrapper.get('[data-testid=summary]').text()).toBe('1 rows, 2 columns')
+    expect(wrapper.get('[data-testid=rows]').text()).toBe('1 row')
+    expect(wrapper.get('[data-testid=columns]').text()).toBe('2 columns')
     expect(wrapper.findAll('th').map((t) => t.text())).toEqual(['name', 'age'])
   })
 
